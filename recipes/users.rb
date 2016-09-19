@@ -16,5 +16,11 @@ user node['user']['name'] do
   home "/home/#{node['user']['name']}"
   password node['user']['password']
   shell '/bin/bash'
-  supports manage_home: true # need for /home creation
+
+  # command deprecated in newer version of chef, replaced with `manage_home`
+  #supports manage_home: true # need for /home creation
+  
+  manage_home true
 end
+
+
